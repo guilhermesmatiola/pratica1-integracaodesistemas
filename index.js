@@ -1,9 +1,14 @@
 import express from 'express';
+import dotenv from 'dotenv';
 
 const app = express();
 
-app.get('/hello', (req, res) => {
+dotenv.config();
+
+app.get('/', (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(5000);
+app.listen(process.env.PORT, ()=>{
+  console.log("servidor aberto na porta " + process.env.PORT);
+});
